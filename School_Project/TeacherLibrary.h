@@ -7,5 +7,10 @@ int result;
 
 void If_Teacher(int role, char name[30]);
 
+void Add_Teacher_Record();
+
+
+//extern char Teacher_Subject[60];
+
 
 #endif

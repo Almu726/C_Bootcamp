@@ -21,18 +21,19 @@ int main(){
             continue;
 
     }
-        
-        
-
-
         if (role == 1) {
             If_Student(role, name);
-            break;
+            sleep(2);
+            Add_Student_Record();
+            
+            
         }
 
         else if (role == 2) {
             If_Teacher(role, name);
-            break;
+            sleep(2);
+            Add_Teacher_Record();
+            
         }
 
         else {

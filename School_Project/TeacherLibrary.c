@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include "TeacherLibrary.h"
+#include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include "TeacherLibrary.h"
 
 
 
@@ -12,10 +14,29 @@ void If_Teacher(int role, char name[30]) {
         break;
     }
     if (fgets(name,30,stdin) != NULL){
-        printf("\nHello and welcome %s\n", name);
+        printf("\nHello & Welcome %s!\n", name);
+        sleep(1);
+
     }
-            
 }
+            
+void Add_Teacher_Record(){
+    char Teacher_Subject[60] = "Teacher Subject: ";
+    printf("Enter Subject you teach: ");
+    scanf("%s", Teacher_Subject);
+
+
+    FILE *fptr;
+    fptr = fopen("TeacherRecords.txt", "w");
+    fputs(Teacher_Subject, fptr);
+
+}
+
+
+
+  
+
+
       
    
 
