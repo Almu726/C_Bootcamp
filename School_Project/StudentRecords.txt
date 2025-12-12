@@ -1,0 +1,3 @@
+Student Subject 1: Maths
+Student Subject 2: Chem
+Student Subject 3: Physics
