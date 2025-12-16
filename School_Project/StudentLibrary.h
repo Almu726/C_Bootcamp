@@ -1,18 +1,18 @@
 #ifndef STUDENT_LIBRARY_H
 #define STUDENT_LIBRARY_H
 
-#include <stdio.h>
-
-
-typedef struct {
+typedef struct Student {
     char name[30];
-    char subjects[3][30];  
-    int grades[3];         
+    char subjects[3][30];
+    int grades[3];
+    struct Student *next;  
 } Student;
 
+extern Student *student_head;  
 
 void If_Student(int role, char name[30]);
-void Add_Student_Record(Student *s);
-int Load_Student_From_File(Student *s, FILE *fp);
+void Add_Student_Record(Student **head);
 void View_Grades(const Student *s);
+void Find_Students_By_Subject(const char *subject);
+
 #endif
