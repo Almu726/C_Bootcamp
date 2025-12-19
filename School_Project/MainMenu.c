@@ -5,6 +5,8 @@
 #include "StudentLibrary.h"
 #include "TeacherLibrary.h"
 
+// gcc MainMenu.c StudentLibrary.c TeacherLibrary.c -o School_Project_Program
+
 int main() {
     int role;
     char name[30];
@@ -22,9 +24,8 @@ int main() {
         getchar();
 
         if (role == 1) {
+            // Name is uninitialised so not needed, role is already checked for so not needed?
             If_Student(role, name);
-            sleep(1);
-
            
             Add_Student_Record(&student_head);
 

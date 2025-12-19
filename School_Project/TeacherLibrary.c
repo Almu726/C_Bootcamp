@@ -13,7 +13,7 @@ void If_Teacher(int role, char name[30]) {
         while ((c = getchar()) != '\n' && c != EOF);
     }
     if (fgets(name, 30, stdin) != NULL) {
-        name[strcspn(name, "\n")] = 0;
+        name[strcspn(name, "\n")] = '\0';
         printf("\nHello & Welcome %s!\n", name);
         sleep(1);
     }

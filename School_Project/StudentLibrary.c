@@ -6,14 +6,16 @@
 
 Student *student_head = NULL;
 
-void If_Student(int role, char name[30]) {
+// this entire function might be unneccessary and it doesnt work or do anything anyways
+void If_Student(int role, char bame[30]) {
     if (role == 1) {
+        char name[30];
+
         printf("\nWelcome to Sky's Student Hub!\nPlease enter your name: ");
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
-    }
-    if (fgets(name, 30, stdin) != NULL) {
-        name[strcspn(name, "\n")] = 0;
+        fgets(name, sizeof(name), stdin);
+        name[strcspn(name, "\n")] = '\0';
         printf("\nHello & Welcome %s!\n", name);
         sleep(1);
     }
