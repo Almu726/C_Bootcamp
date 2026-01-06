@@ -24,8 +24,6 @@ int main() {
         getchar();
 
         if (role == 1) {
-            // Name is uninitialised so not needed, role is already checked for so not needed?
-            If_Student(role, name);
            
             Add_Student_Record(&student_head);
 

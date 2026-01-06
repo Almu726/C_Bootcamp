@@ -4,24 +4,14 @@
 #include <stdlib.h>
 #include "StudentLibrary.h"
 
+const char* subjectNames[] = {
+    "English", "Maths", "History", "Geography", "Science"
+};
+
 Student *student_head = NULL;
 
-// this entire function might be unneccessary and it doesnt work or do anything anyways
-void If_Student(int role, char bame[30]) {
-    if (role == 1) {
-        char name[30];
-
-        printf("\nWelcome to Sky's Student Hub!\nPlease enter your name: ");
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-        fgets(name, sizeof(name), stdin);
-        name[strcspn(name, "\n")] = '\0';
-        printf("\nHello & Welcome %s!\n", name);
-        sleep(1);
-    }
-}
-
 void Add_Student_Record(Student **head) {
+    int count, subj, grade;
     Student *new_student = malloc(sizeof(Student));
     if (!new_student) return;
 
@@ -29,11 +19,19 @@ void Add_Student_Record(Student **head) {
     fgets(new_student->name, sizeof(new_student->name), stdin);
     new_student->name[strcspn(new_student->name, "\n")] = '\0';
 
-    for (int i = 0; i < 3; i++) {
-        printf("Enter subject %d: ", i + 1);
-        fgets(new_student->subjects[i], sizeof(new_student->subjects[i]), stdin);
-        new_student->subjects[i][strcspn(new_student->subjects[i], "\n")] = '\0';
-        new_student->grades[i] = 0;
+    printf("How many subjects does %s study? ", new_student->name);
+    int count;
+    scanf("%d", &count);
+
+    for (int i = 0; i < count; i++) {
+        printf("Enter Subject %d: ", i + 1);
+        scanf("%d", &subj)
+        
+        printf("Enter Grade (1-9): ");
+        int grade;
+        scanf("%d", &grade);
+
+        
     }
 
     new_student->next = *head;

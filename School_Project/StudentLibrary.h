@@ -1,6 +1,7 @@
 #ifndef STUDENT_LIBRARY_H
 #define STUDENT_LIBRARY_H
 
+
 typedef struct Student {
     char name[30];
     char subjects[3][30];
