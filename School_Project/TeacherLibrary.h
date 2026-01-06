@@ -11,7 +11,6 @@ typedef struct Teacher {
 
 extern Teacher *teacher_head; 
 
-void If_Teacher(int role, char name[30]);
 void Add_Teacher_Record(Teacher **head);
 void Enter_Grade(Student *s, const char *subject, int grade);
 void Find_Teacher_By_Subject(const char *subject);

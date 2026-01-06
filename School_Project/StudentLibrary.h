@@ -10,7 +10,6 @@ typedef struct Student {
 
 extern Student *student_head;  
 
-void If_Student(int role, char name[30]);
 void Add_Student_Record(Student **head);
 void View_Grades(const Student *s);
 void Find_Students_By_Subject(const char *subject);

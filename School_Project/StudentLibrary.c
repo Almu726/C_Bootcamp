@@ -6,18 +6,6 @@
 
 Student *student_head = NULL;
 
-void If_Student(int role, char name[30]) {
-    if (role == 1) {
-        printf("\nWelcome to Sky's Student Hub!\nPlease enter your name: ");
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-    }
-    if (fgets(name, 30, stdin) != NULL) {
-        name[strcspn(name, "\n")] = 0;
-        printf("\nHello & Welcome %s!\n", name);
-        sleep(1);
-    }
-}
 
 void Add_Student_Record(Student **head) {
     Student *new_student = malloc(sizeof(Student));
@@ -45,16 +33,29 @@ void View_Grades(const Student *s) {
     }
 }
 
-void Find_Students_By_Subject(const char *subject) {
-    Student *curr = student_head;
-    printf("Students studying %s:\n", subject);
-    while (curr) {
-        for (int j = 0; j < 3; j++) {
-            if (strcmp(curr->subjects[j], subject) == 0) {
-                printf("  %s\n", curr->name);
-                break;
+void Find_Students_By_Subject(const char *subject) 
+{
+    Student *current = student_head;
+    int found = 0;
+
+    printf("\nStudents studying %s:\n", subject);
+
+    while (current != NULL)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (strcmp(current->subjects[i], subject) == 0)
+            {
+                printf("- %s\n", current->name);
+                found = 1;
+                break;  
             }
         }
-        curr = curr->next;
+        current = current->next;
+    }
+
+    if (!found)
+    {
+        printf("No students found for this subject.\n");
     }
 }

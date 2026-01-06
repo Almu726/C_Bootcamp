@@ -21,46 +21,57 @@ int main() {
         }
         getchar();
 
+        /* ---------------- STUDENT SECTION ---------------- */
         if (role == 1) {
-            If_Student(role, name);
             sleep(1);
 
-           
             Add_Student_Record(&student_head);
 
             int choice;
+            char subject[30];
+
             while (1) {
                 printf("\n--- Student Menu ---\n");
                 printf("1. View Grades\n");
-                printf("2. Exit\n");
+                printf("2. Search Students by Subject\n");
+                printf("3. Exit\n");
                 printf("Enter choice: ");
                 scanf("%d", &choice);
                 getchar();
 
                 if (choice == 1) {
-                   
                     View_Grades(student_head);
-                } else if (choice == 2) {
+                }
+                else if (choice == 2) {
+                    printf("Enter subject to search: ");
+                    scanf("%s", subject);
+                    getchar();
+                    Find_Students_By_Subject(subject);
+                }
+                else if (choice == 3) {
                     break;
-                } else {
+                }
+                else {
                     printf("Invalid choice.\n");
                 }
             }
             break;
         }
 
+        /* ---------------- TEACHER SECTION ---------------- */
         else if (role == 2) {
-            If_Teacher(role, name);
             sleep(1);
 
-           
             Add_Teacher_Record(&teacher_head);
 
             int choice;
+            char subject[30];
+
             while (1) {
                 printf("\n--- Teacher Menu ---\n");
                 printf("1. Enter Grade for Student\n");
-                printf("2. Exit\n");
+                printf("2. Search Teacher by Subject\n");
+                printf("3. Exit\n");
                 printf("Enter choice: ");
                 scanf("%d", &choice);
                 getchar();
@@ -71,7 +82,6 @@ int main() {
                         continue;
                     }
 
-                 
                     int index = 1;
                     Student *curr = student_head;
                     printf("\nList of Students:\n");
@@ -124,9 +134,18 @@ int main() {
                            curr->subjects[subject_index - 1],
                            grade);
                 }
+
                 else if (choice == 2) {
+                    printf("Enter subject to search: ");
+                    scanf("%s", subject);
+                    getchar();
+                    Find_Teacher_By_Subject(subject);
+                }
+
+                else if (choice == 3) {
                     break;
                 }
+
                 else {
                     printf("Invalid choice.\n");
                 }
@@ -134,6 +153,7 @@ int main() {
             break;
         }
 
+        /* ---------------- INVALID ROLE ---------------- */
         else {
             printf("\nPlease enter a valid option from 1 or 2");
             sleep(2);

@@ -6,18 +6,7 @@
 
 Teacher *teacher_head = NULL;
 
-void If_Teacher(int role, char name[30]) {
-    if (role == 2) {
-        printf("\nWelcome to Sky's Teacher Hub!\nPlease enter your name: ");
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-    }
-    if (fgets(name, 30, stdin) != NULL) {
-        name[strcspn(name, "\n")] = 0;
-        printf("\nHello & Welcome %s!\n", name);
-        sleep(1);
-    }
-}
+
 
 void Add_Teacher_Record(Teacher **head) {
     Teacher *new_teacher = malloc(sizeof(Teacher));
@@ -45,14 +34,26 @@ void Enter_Grade(Student *s, const char *subject, int grade) {
     printf("Subject not found for %s\n", s->name);
 }
 
-void Find_Teacher_By_Subject(const char *subject) {
-    Teacher *curr = teacher_head;
-    while (curr) {
-        if (strcmp(curr->subject, subject) == 0) {
-            printf("Teacher for %s: %s\n", subject, curr->name);
-            return;
+void Find_Teacher_By_Subject(const char *subject)
+{
+    Teacher *current = teacher_head;
+    int found = 0;
+
+    printf("\nTeacher who teaches %s:\n", subject);
+
+    while (current != NULL)
+    {
+        if (strcmp(current->subject, subject) == 0)
+        {
+            printf("- %s\n", current->name);
+            found = 1;
+            break;  
         }
-        curr = curr->next;
+        current = current->next;
     }
-    printf("No teacher found for %s\n", subject);
+
+    if (!found)
+    {
+        printf("No teacher found for this subject.\n");
+    }
 }
