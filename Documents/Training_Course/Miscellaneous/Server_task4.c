@@ -20,10 +20,6 @@ int main(){
 
     int client_sd = accept(sd, NULL, NULL);
 
-    char buffer[1024];
-    int bytes = recv(client_sd, buffer, sizeof(buffer), 0);
-
-
 
     while (1) {
 
